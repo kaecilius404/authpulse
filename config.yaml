@@ -1,0 +1,38 @@
+target:
+  base_url: "https://api.target.com"
+  verify_ssl: true
+
+auth:
+  method: "bearer_jwt"           # bearer_jwt | api_key | cookie_session | oauth2
+  login_endpoint: "/api/auth/login"
+  login_method: "POST"
+  login_body_template:
+    email: "{email}"
+    password: "{password}"
+  token_location: "response_body"   # response_body | response_header
+  token_field: "access_token"       # JSON path (dot-notation) or header name
+  token_header: "Authorization"
+  token_prefix: "Bearer "
+
+users:
+  low_priv:
+    email: "user@target.com"
+    password: "UserPassword123"
+    label: "Regular User"
+  high_priv:
+    email: "admin@target.com"
+    password: "AdminPassword123"
+    label: "Administrator"
+
+testing:
+  idor_cycling_count: 20         # How many sequential IDs to cycle through
+  concurrent_requests: 5         # Max parallel requests
+  request_delay_ms: 200          # Delay between requests (ms)
+  skip_static_files: true        # Skip .js, .css, .png etc.
+  test_role_manipulation: true   # Test JWT role claim injection
+  test_mass_assignment: true     # Test body key injection
+
+output:
+  directory: "./authpulse-output"
+  format: "json"                 # json | markdown
+  verbose: false

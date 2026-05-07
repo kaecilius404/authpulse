@@ -1,0 +1,51 @@
+## Juice Shop Demo Config
+## OWASP Juice Shop is a free intentionally-vulnerable app perfect for testing AuthPulse.
+##
+## Setup:
+##   docker run --rm -p 3000:3000 bkimminich/juice-shop
+##
+## Register two accounts at http://localhost:3000:
+##   1. Regular user:  user@juice.sh / UserPwd123!
+##   2. Admin user:    admin@juice-sh.op / admin123  (built-in default)
+##
+## Then run:
+##   authpulse scan --config demo-juice-shop.yaml --endpoints juice-shop-endpoints.json
+
+target:
+  base_url: "http://localhost:3000"
+  verify_ssl: false
+
+auth:
+  method: "bearer_jwt"
+  login_endpoint: "/rest/user/login"
+  login_method: "POST"
+  login_body_template:
+    email: "{email}"
+    password: "{password}"
+  token_location: "response_body"
+  token_field: "authentication.token"   # nested JSON path
+  token_header: "Authorization"
+  token_prefix: "Bearer "
+
+users:
+  low_priv:
+    email: "user@juice.sh"
+    password: "UserPwd123!"
+    label: "Regular User"
+  high_priv:
+    email: "admin@juice-sh.op"
+    password: "admin123"
+    label: "Administrator"
+
+testing:
+  idor_cycling_count: 10
+  concurrent_requests: 3
+  request_delay_ms: 300
+  skip_static_files: true
+  test_role_manipulation: true
+  test_mass_assignment: true
+
+output:
+  directory: "./authpulse-output/juice-shop"
+  format: "json"
+  verbose: false

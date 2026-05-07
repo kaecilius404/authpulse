@@ -1,0 +1,14 @@
+{
+  "endpoints": [
+    {"url": "/api/v1/users", "method": "GET"},
+    {"url": "/api/v1/users/{id}", "method": "GET"},
+    {"url": "/api/v1/users/{id}", "method": "PUT"},
+    {"url": "/api/v1/users/{id}", "method": "DELETE"},
+    {"url": "/api/v1/admin/settings", "method": "GET"},
+    {"url": "/api/v1/admin/users", "method": "GET"},
+    {"url": "/api/v2/orders", "method": "GET"},
+    {"url": "/api/v2/orders/{id}", "method": "GET"},
+    {"url": "/api/v1/profile", "method": "GET"},
+    {"url": "/api/v1/profile", "method": "PUT"}
+  ]
+}

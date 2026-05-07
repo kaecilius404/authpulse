@@ -1,0 +1,17 @@
+{
+  "endpoints": [
+    {"url": "/rest/user/whoami", "method": "GET"},
+    {"url": "/rest/basket/1", "method": "GET"},
+    {"url": "/rest/basket/2", "method": "GET"},
+    {"url": "/api/Users", "method": "GET"},
+    {"url": "/api/Users/1", "method": "GET"},
+    {"url": "/api/Users/2", "method": "GET"},
+    {"url": "/api/SecurityQuestions", "method": "GET"},
+    {"url": "/api/Feedbacks", "method": "GET"},
+    {"url": "/api/Feedbacks/1", "method": "GET"},
+    {"url": "/api/Orders/1", "method": "GET"},
+    {"url": "/rest/admin/application-version", "method": "GET"},
+    {"url": "/rest/admin/application-configuration", "method": "GET"},
+    {"url": "/metrics", "method": "GET"}
+  ]
+}

@@ -1,0 +1,10 @@
+# ── Required (pure stdlib fallback, so these are all you need) ──────────────
+click>=8.1.0
+PyYAML>=6.0.0
+colorama>=0.4.6
+PyJWT>=2.6.0
+cryptography>=41.0.0   # needed by PyJWT for RS256/ES256 key support
+
+# ── Optional but recommended ─────────────────────────────────────────────────
+# aiohttp makes concurrent scans 5-10x faster; without it urllib is used
+aiohttp>=3.9.0
