@@ -11,7 +11,7 @@ You do the manual validation and write the report. AuthPulse does the boring par
 ## Installation
 
 ```bash
-git clone https://github.com/your-org/authpulse
+git clone https://github.com/kaecilius 404/authpulse
 cd authpulse
 pip install -e .
 ```
